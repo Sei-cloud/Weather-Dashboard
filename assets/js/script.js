@@ -108,17 +108,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // Event listener for unit switcher change
- // Event listener for unit switcher change
-unitSwitcher.forEach(radio => {
-    radio.addEventListener('change', function () {
-        selectedUnit = this.value;
-        const cityName = cityInput.value.trim();
-        if (cityName !== '') {
-            renderWeather(cityName, selectedUnit);
-        }
+    unitSwitcher.forEach(radio => {
+        radio.addEventListener('change', function () {
+            selectedUnit = this.value;
+            localStorage.setItem('selectedUnit', selectedUnit); // Save selected unit to local storage
+            const cityName = cityInput.value.trim();
+            if (cityName !== '') {
+                renderWeather(cityName, selectedUnit);
+            }
+        });
     });
-});
-
 
     // Event listener for clear search history button click
     clearHistoryBtn.addEventListener('click', function () {
@@ -126,11 +125,19 @@ unitSwitcher.forEach(radio => {
         renderSearchHistory();
     });
 
-  searchBtn.addEventListener('click', function () {
-    const cityName = cityInput.value.trim();
+    searchBtn.addEventListener('click', function () {
+        const cityName = cityInput.value.trim();
         renderWeather(cityName, selectedUnit);
-});
+    });
 
+
+    // Retrieve last selected unit from local storage
+    const savedUnit = localStorage.getItem('selectedUnit');
+    if (savedUnit) {
+        selectedUnit = savedUnit;
+        // Set the radio button for the saved unit as checked
+        document.querySelector(`input[name="units"][value="${selectedUnit}"]`).checked = true;
+    }
     // Render weather for the last searched city when the page loads
     const lastSearchedCity = getSearchHistory()[0];
     if (lastSearchedCity) {

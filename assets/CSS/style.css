@@ -11,9 +11,25 @@ body {
     margin-bottom: 20px;
 }
 
+#search-history-container li{
+    text-decoration: none;
+}
+
 #city-input {
     padding: 8px;
     margin-right: 10px;
+}
+
+#weather-container {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#city-name {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 #search-btn {

@@ -7,22 +7,29 @@
     <link rel="stylesheet" href="./assets/CSS/style.css">
 </head>
 <body>
-    <div id="search-container">
-        <input type="text" id="city-input" placeholder="Enter city name">
-        <button id="search-btn">Search</button>
+    <div class="container">
+        <h1>Weather-Dashboard</h1>
+        <div class="search-container">
+            <input type="text" id="city-input" placeholder="Enter city name...">
+            <button id="search-btn">Search</button>
+        </div>
+        <div class="unit-switcher">
+            <input type="radio" id="metric" name="units" value="metric" checked>
+            <label for="metric">Metric</label>
+            <input type="radio" id="imperial" name="units" value="imperial">
+            <label for="imperial">Imperial</label>
+        </div>
+        <div id="search-history-container" class="hidden">
+            <button id="clear-history-btn">Clear Search History</button>
+            <ul id="search-history"></ul>
+        </div>
+        <div id="weather-container"></div>
     </div>
-    <div id="unit-switcher">
-        <input type="radio" name="units" value="metric" id="metric" checked>
-        <label for="metric">Metric</label>
-        <input type="radio" name="units" value="imperial" id="imperial">
-        <label for="imperial">Imperial</label>
-    </div>
-    <div id="search-history-container">
-        <h2>Search History</h2>
-        <ul id="search-history"></ul>
-    </div>
-    <div id="weather-container"></div>
+
+
 
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
+
+

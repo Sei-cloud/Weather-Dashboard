@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Weather-Dashboard</h1>
+        <h1 id="weatherTitle">Weather-Dashboard</h1>
         <div class="search-container">
             <input type="text" id="city-input" placeholder="Enter city name...">
             <button id="search-btn">Search</button>
@@ -20,8 +20,10 @@
             <label for="imperial">Imperial</label>
         </div>
         <div id="search-history-container">
-            <button id="clear-history-btn">Clear Search History</button>
+            <h2>Search History</h2>
             <ul id="search-history"></ul>
+            <button id="clear-history-btn">Clear Search History</button>
+            
         </div>
         <div id="weather-container">
             <div id="city-name"></div>

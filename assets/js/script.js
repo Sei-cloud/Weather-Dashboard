@@ -45,8 +45,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-
-
     // Function to render weather data
     async function renderWeather(cityName, units) {
         saveSearchHistory(cityName);
@@ -61,6 +59,12 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('No weather data found for the entered city. Please enter a valid city name.');
             return;
         }
+
+        // Display the city name
+        const cityNameElement = document.createElement('div');
+        cityNameElement.textContent = cityName;
+        cityNameElement.classList.add('city-name');
+        weatherContainer.appendChild(cityNameElement);
 
         const uniqueDates = new Set(); // To store unique dates
         const uniqueForecasts = []; // To store unique forecasts for each unique date

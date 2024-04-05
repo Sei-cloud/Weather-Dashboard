@@ -41,6 +41,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const listItem = document.createElement('li');
             listItem.textContent = cityName;
             listItem.classList.add('search-history-item');
+            listItem.addEventListener('click', function () {
+                // Set the value of the city input field to the clicked city name
+                cityInput.value = cityName;
+                // Render weather for the clicked city
+                renderWeather(cityName, selectedUnit);
+            });
             searchHistory.appendChild(listItem);
         });
     }
